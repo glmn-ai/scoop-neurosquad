@@ -1,42 +1,35 @@
-# Scoop Bucket Template
+# NeuroSquad for Scoop
 
-<!-- Uncomment the following line after replacing placeholders -->
-<!-- [![Tests](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml) [![Excavator](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml) -->
+[![Tests](https://github.com/glmn-ai/scoop-neurosquad/actions/workflows/ci.yml/badge.svg)](https://github.com/glmn-ai/scoop-neurosquad/actions/workflows/ci.yml) [![Excavator](https://github.com/glmn-ai/scoop-neurosquad/actions/workflows/excavator.yml/badge.svg)](https://github.com/glmn-ai/scoop-neurosquad/actions/workflows/excavator.yml)
 
-Template bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
+A [Scoop](https://scoop.sh) bucket for [NeuroSquad](https://neurosquad.ai/) — a desktop canvas for
+AI coding agents: agent CLIs run side by side as cards, each with a live terminal, and you wire
+them to browsers, terminals, notes and each other with arrows. Windows 10 and 11, 64-bit.
 
-## How do I use this template?
+## Install
 
-1. Generate your own copy of this repository with the "Use this template"
-   button.
-2. Allow all GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Actions permissions`.
-   - Select `Allow all actions and reusable workflows`.
-   - Then `Save`.
-3. Workflow permissions:
-   - Navigate to `Settings` - `Actions` - `General` - `Workflow permissions`.
-   - Ensure `Read repository contents and packages permissions` is selected.
-   - Then `Save`.
-4. Document the bucket in `README.md`.
-5. Replace the placeholder repository string in `bin/auto-pr.ps1`.
-6. Create new manifests by copying `bucket/app-name.json.template` to
-   `bucket/<app-name>.json`.
-7. Commit and push changes.
-8. If you'd like your bucket to be indexed on `https://scoop.sh`, add the
-   topic `scoop-bucket` to your repository.
-
-## How do I install these manifests?
-
-After manifests have been committed and pushed, run the following:
-
-```pwsh
-scoop bucket add <bucketname> https://github.com/<username>/<bucketname>
-scoop install <bucketname>/<manifestname>
+```powershell
+scoop bucket add neurosquad https://github.com/glmn-ai/scoop-neurosquad
+scoop install neurosquad
 ```
 
-## How do I contribute new manifests?
+NeuroSquad then is in the Start menu. It needs a free NeuroSquad account (the app asks you to sign
+in on first launch).
 
-To make a new manifest contribution, please read the [Contributing
-Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
-and [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
-wiki page.
+## How it installs
+
+The manifest runs NeuroSquad's own installer unattended
+(`NeuroSquad-Setup.exe --silent --no-desktop --dir <scoop app dir>\app`), downloaded from the
+[official releases](https://github.com/glmn-ai/neurosquad-releases/releases) and checked against
+its SHA-256. The installer adds the Start menu shortcut (Windows notifications need it) and an
+entry in Apps & features; `scoop uninstall neurosquad` runs NeuroSquad's uninstaller, which removes
+exactly what was installed. Your data in `%APPDATA%\NeuroSquad` stays.
+
+NeuroSquad updates itself; `scoop update neurosquad` works too. The manifest follows new releases
+automatically ([Excavator](.github/workflows/excavator.yml), `checkver` + `autoupdate`).
+
+## Other ways to install
+
+- The download page: <https://neurosquad.ai/download>
+- winget: `winget install NeuroSquad.NeuroSquad`
+- PowerShell: `irm https://neurosquad.ai/install.ps1 | iex`
