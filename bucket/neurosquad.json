@@ -1,5 +1,5 @@
 {
-    "version": "0.1.266",
+    "version": "0.1.270",
     "description": "A desktop canvas for AI coding agents: run agent CLIs side by side and wire them to browsers, terminals and notes.",
     "homepage": "https://neurosquad.ai/",
     "license": {
@@ -12,8 +12,8 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/glmn-ai/neurosquad-releases/releases/download/v0.1.266/NeuroSquad-Setup.exe#/setup.exe",
-            "hash": "55077e708a24955058cd9a2689ccc979fa6319103ee5564384d29352894cbe70"
+            "url": "https://github.com/glmn-ai/neurosquad-releases/releases/download/v0.1.270/NeuroSquad-Setup.exe#/setup.exe",
+            "hash": "fc189fcb6b0ed4e7f742b82d981c97e47d67c8495fce555721abe343ed130ec1"
         }
     },
     "installer": {
