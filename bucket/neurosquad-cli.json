@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0-placeholder",
+  "version": "0.1.0",
   "description": "nsq: run several AI coding agents in your terminal and get called when one needs you.",
   "homepage": "https://github.com/glmn-ai/neurosquad-cli",
   "license": "MIT",
@@ -8,8 +8,8 @@
     "Start with 'nsq' (dashboard) or 'nsq run claude \"task\"'. Your own Claude Code / Codex / OpenCode",
     "logins and configs are used as they are; nsq never writes them."
   ],
-  "url": "https://registry.npmjs.org/neurosquad/-/neurosquad-0.0.0-placeholder.tgz",
-  "hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "url": "https://registry.npmjs.org/neurosquad/-/neurosquad-0.1.0.tgz",
+  "hash": "7e3a2e3e055b29506fd36f8d803d218d7402b5f27072473c2989d6298daf418c",
   "extract_dir": "package",
   "installer": {
     "script": [
